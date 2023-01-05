@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="about.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">   
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+        <title>A propos</title>
+    </head>
+
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo"><a href="#">HACKINFO</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">HACKINFO</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="home.html">Acceuil</a></li>
+                    <li><a href="about.html">A propos</a></li>
+                    <li><a href="academie.html">Academie</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                    <div class="searchToggle">
+                        <i class='bx bx-x cancel'></i>
+                        <i class='bx bx-search search'></i>
+                    </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="header">
+        <div class="grid">
+            <div class="col">
+                <h1 style="font-size:40px ;">Nous sommes une equipe de
+                    <strong>passionne</strong> pret a relever tout les defis afin de promouvoir le HACKING</h1>
+                    <div style="display: flex; align-items:center;justify-content: start;">
+                        <button class="button button-3">Nous rejoindre</button>
+                    </div>
+            </div>
+            <div class="col gif-header">
+                <img src="/img/team.png" style="height:20rem;">
+            </div>
+        </div>
+    </header>
+    <section class="our-work">
+        <div class="grid-work">
+            <div class="col-work" style="display: flex;flex-direction: column;justify-content:center;text-align:center;">
+                    <img style="width: 265px; height:200px" src="/img/team-hack.jpg" >
+                    <h2 style="font-size: 20px;" >Escape Conference 2021</h2>
+                    <p style="font-size: 10px;">Escape Conference 2021 a reuni plusieurs passionne de cybersecurite ivoirien.
+                        L'objectif de Escape Conference est de permettre au expert et devancier du domaine, de partager leurs
+                        experience avec les nouveaux.
+                    </p>
+            </div>
+            <div class="col-work">
+                <img style="width: 270px; height:270px" src="/img/live.jpg" >
+                <h2 style="font-size: 20px;" >LIVE HACKING</h2>
+                <p style="font-size: 10px;">Nous organisons 2 fois dans le mois des live hacking dans lesquels nous 
+                    parlons des sujets autour de la cybersecurite. Nous y resolvons des labs, nous y faisons des ctfs...
+                </p>
+            </div>
+            <div class="col-work">
+                <img style="width: 270px; height:270px" src="/img/hackerlab-finalist.jpg" >
+                <h2 style="font-size: 20px;" >HACKER LAB CEDEAO</h2>
+                <p style="font-size: 10px;">Nous avons participe a la competition HACKERLAB CEDEAO 2022. 
+                    Et somme sortie 1er de la premiere phase de la competition.
+                </p>
+            </div>
+        </div>
+    </section>
+    <footer style="margin-top: 5px;">
+        <div class="grid-footer">
+            <div class="col-footer">
+                <h1>Nos reseaux sociaux</h1> <br>
+                <div>
+                    <i class="fa-brands fa-facebook fa-xl" style="margin: 10px;"></i>
+                    <i class="fa-brands fa-youtube fa-xl" style="margin: 10px;"></i>
+                    <i class="fa-brands fa-instagram fa-xl" style="margin: 10px;"></i>
+                    <i class="fa-brands fa-telegram fa-xl" style="margin: 10px;"></i>
+                    <i class="fa-solid fa-envelope fa-xl" style="margin: 10px;"></i>
+                </div>
+            </div>
+            
+            <div class="col-footer">
+                <ul class="nav-links">
+                    <li><a href="home.html">Acceuil</a></li>
+                    <li><a href="about.html">A propos</a></li>
+                    <li><a href="#">Academie</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+        const body = document.querySelector("body"),
+            nav = document.querySelector("nav"),
+            modeToggle = document.querySelector(".dark-light"),
+            searchToggle = document.querySelector(".searchToggle"),
+            sidebarOpen = document.querySelector(".sidebarOpen"),
+            siderbarClose = document.querySelector(".siderbarClose");
+
+        let getMode = localStorage.getItem("mode");
+        if (getMode && getMode === "dark-mode") {
+            body.classList.add("dark");
+        }
+
+        // js code to toggle dark and light mode
+        modeToggle.addEventListener("click", () => {
+            modeToggle.classList.toggle("active");
+            body.classList.toggle("dark");
+
+            // js code to keep user selected mode even page refresh or file reopen
+            if (!body.classList.contains("dark")) {
+                localStorage.setItem("mode", "light-mode");
+            } else {
+                localStorage.setItem("mode", "dark-mode");
+            }
+        });
+
+        // js code to toggle search box
+        searchToggle.addEventListener("click", () => {
+            searchToggle.classList.toggle("active");
+        });
+
+
+        //   js code to toggle sidebar
+        sidebarOpen.addEventListener("click", () => {
+            nav.classList.add("active");
+        });
+
+        body.addEventListener("click", e => {
+            let clickedElm = e.target;
+
+            if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")) {
+                nav.classList.remove("active");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

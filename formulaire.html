@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="formulaire.css" />
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo"><a href="home.html">HACKINFO</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">HACKINFO</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="home.html">Acceuil</a></li>
+                    <li><a href="about.html">A propos</a></li>
+                    <li><a href="academie.html">Academie</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                    <div class="searchToggle">
+                        <i class='bx bx-x cancel'></i>
+                        <i class='bx bx-search search'></i>
+                    </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav> <br> <br><br><br>
+    <div style="display: flex;justify-content: center;align-items: center;"> 
+        <section class="container">
+        <header>Registration Form</header>
+        <form action="https://formsubmit.co/el/wiputi" method="POST">
+          <div class="input-box">
+            <label>Full Name</lab el>
+            <input name="name" type="text" placeholder="Enter full name" required />
+          </div>
+  
+          <div class="input-box">
+            <label>Email Address</label>
+            <input name="email" type="text" placeholder="Enter email address" required />
+          </div>
+  
+          <div class="column">
+            <div class="input-box">
+              <label>Phone Number</label>
+              <input name="phone" type="number" placeholder="Enter phone number" required />
+            </div>
+            <div class="input-box">
+              <label>Birth Date</label>
+              <input name="date" type="date" placeholder="Enter birth date" required />
+            </div>
+          </div>
+          <button>Submit</button>
+        </form>
+      </section></div>
+      <footer>
+        <div class="grid-footer">
+            <div class="col-footer">
+                <h1>Nos reseaux sociaux</h1> <br>
+                <div>
+                    <i class="fa-brands fa-facebook fa-xl" style="margin: 10px;"></i>
+                    <i class="fa-brands fa-youtube fa-xl" style="margin: 10px;"></i>
+                    <i class="fa-brands fa-instagram fa-xl" style="margin: 10px;"></i>
+                    <i class="fa-brands fa-telegram fa-xl" style="margin: 10px;"></i>
+                    <i class="fa-solid fa-envelope fa-xl" style="margin: 10px;"></i>
+                </div>
+            </div>
+            <!-- <hr style="border-left: 1px solid #7bbce5;height:150px;position:absolute;left: 50%;"> -->
+            <div class="col-footer">
+                <ul class="nav-links">
+                    <li><a href="home.html">Acceuil</a></li>
+                    <li><a href="about.html">A propos</a></li>
+                    <li><a href="academie.html">Academie</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+  </body>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+
+    const body = document.querySelector("body"),
+        nav = document.querySelector("nav"),
+        modeToggle = document.querySelector(".dark-light"),
+        searchToggle = document.querySelector(".searchToggle"),
+        sidebarOpen = document.querySelector(".sidebarOpen"),
+        siderbarClose = document.querySelector(".siderbarClose");
+
+    let getMode = localStorage.getItem("mode");
+    if (getMode && getMode === "dark-mode") {
+        body.classList.add("dark");
+    }
+
+    modeToggle.addEventListener("click", () => {
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        if (!body.classList.contains("dark")) {
+            localStorage.setItem("mode", "light-mode");
+        } else {
+            localStorage.setItem("mode", "dark-mode");
+        }
+    });
+
+    searchToggle.addEventListener("click", () => {
+        searchToggle.classList.toggle("active");
+    });
+
+
+    sidebarOpen.addEventListener("click", () => {
+        nav.classList.add("active");
+    });
+
+    body.addEventListener("click", e => {
+        let clickedElm = e.target;
+
+        if (!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")) {
+            nav.classList.remove("active");
+        }
+    });
+    function sendMail(){
+        Email.send({
+        Host : "smtp.gmail.com",
+        Username : "hackinfo21@gmail.com",
+        Password : "WISDOM22",
+        To : 'hackinfo21@gmail.com',
+        From : document.getElementById("email").value,
+        Subject : "Membre premium",
+        Body : "Name:  " + document.getElementById("name").value +"<br> Email: " +
+        "<br> Email : " + document.getElementById("email").value+
+        "<br> Phone : " + document.getElementById("phone").value+
+        "<br> Phone : " + document.getElementById("date").value
+    }).then(
+    message => alert("Sent succesfully")
+    );
+    }
+</script>
+
+</html>
+

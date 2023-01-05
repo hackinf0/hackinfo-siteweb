@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;
+    ;
+}
+
+:root {
+    --body-color: #E4E9F7;
+    --nav-color: #ffff;
+    --side-nav: #fff;
+    --text-color: #111927;
+    --search-bar: #010718;
+    --search-text: #fff;
+    --section-color: #a299df1e;
+    --card-color: white;
+    --paragraph-color: white;
+    --footer-card-color: #f7fafd;
+    --btn-color: #1b1e3d;
+    --btn-text: #68A0DE;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--body-color);
+}
+
+body.dark {
+    --body-color: #1b1e3d;
+    --nav-color: #1b1e3d;
+    --side-nav: rgba(36, 37, 38, 0.911);
+    --text-color: #CCC;
+    --search-bar: #242526;
+    --section-color: #171933;
+    --card-color: #22244d;
+    --paragraph-color: #7984ba;
+    --footer-card-color: #1d1f42;
+    --btn-color: #ffff;
+    --btn-text: #68A0DE;
+}
+
+.section-formation {
+    width: 100%;
+    margin-top: 60px;
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+.grid-formation {
+    display: grid;
+    padding: 16px;
+
+}
+
+.col-formation {
+    margin-bottom: 16px;
+    padding: 16px;
+}
+
+.section-chapitre {
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+.grid-chapitre {
+    display: grid;
+    padding: 16px;
+
+}
+
+.col-chapitre {
+    margin-bottom: 16px;
+    padding: 16px;
+}
+
+
+
+
+
+@media (min-width:768px) {
+    .grid-formation {
+        display: grid;
+        grid-gap: 100px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grid-chapitre {
+        display: grid;
+        grid-gap: 100px;
+        grid-template-columns: 1fr 1fr;
+    }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="formation-vue.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="/formation-vue.js"></script>
+    <title>Formation</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-bar">
+        <i class="bx bx-menu sidebarOpen"></i>
+        <span class="logo navLogo"><a href="home.html">HACKINFO</a></span>
+
+        <div class="menu">
+          <div class="logo-toggle">
+            <span class="logo"><a href="#">HACKINFO</a></span>
+            <i class="bx bx-x siderbarClose"></i>
+          </div>
+
+          <ul class="nav-links">
+            <li><a href="home.html">Acceuil</a></li>
+            <li><a href="about.html">A propos</a></li>
+            <li><a href="academie.html">Academie</a></li>
+          </ul>
+        </div>
+
+        <div class="darkLight-searchBox">
+          <div class="dark-light">
+            <i class="bx bx-moon moon"></i>
+            <i class="bx bx-sun sun"></i>
+          </div>
+
+          <div class="searchBox">
+            <div class="searchToggle">
+              <i class="bx bx-x cancel"></i>
+              <i class="bx bx-search search"></i>
+            </div>
+
+            <div class="search-field">
+              <input type="text" placeholder="Search..." />
+              <i class="bx bx-search"></i>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="btn"> <i class="fa fa-user"></i> s'inscrire</span>
+          <span class="btn">·</span>
+          <span class="btn">se connecter</span>
+        </div>
+      </div>
+    </nav>
+    <section class="section-formation">
+      <div class="grid-formation">
+        <div class="col-formation">
+          <h1 style="font-size: 50px; color: white;">
+            Debuter sur <strong>Linux</strong>
+          </h1>
+          <span style="color: white;">
+            Apres avoir suivi cette formation vous serez capable d'utiliser
+            Linux comme un pro.</span
+          >
+        </div>
+        <div class="col-formation">
+          <img src="/img/linux.png" style="width: 150px; margin: 15px;" />
+          <img src="/img/docker.png" style="width: 150px; margin: 15px;" />
+        </div>
+      </div>
+    </section>
+    <section class="section-chapitre">
+      <div class="grid-chapitre"></div>
+      <div class="">
+        <h1 class="title">1. Introduction</h1>
+        <iframe
+          width="720"
+          height="360"
+          src="https://www.youtube.com/embed/hOE_qmUDVS4"
+          title="Voici comment les hackers vous piratent en 2022"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="card-playlist">
+        <h3 class="title">Title of Video Playlist</h3>
+        <p>10 lessions &nbsp; . &nbsp; 50m 48s</p>
+        <div class="videos"></div>
+      </div>
+    </section>
+    <script>
+      const body = document.querySelector("body"),
+        nav = document.querySelector("nav"),
+        modeToggle = document.querySelector(".dark-light"),
+        searchToggle = document.querySelector(".searchToggle"),
+        sidebarOpen = document.querySelector(".sidebarOpen"),
+        siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+      if (getMode && getMode === "dark-mode") {
+        body.classList.add("dark");
+      }
+
+      // js code to toggle dark and light mode
+      modeToggle.addEventListener("click", () => {
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if (!body.classList.contains("dark")) {
+          localStorage.setItem("mode", "light-mode");
+        } else {
+          localStorage.setItem("mode", "dark-mode");
+        }
+      });
+
+      // js code to toggle search box
+      searchToggle.addEventListener("click", () => {
+        searchToggle.classList.toggle("active");
+      });
+
+      //   js code to toggle sidebar
+      sidebarOpen.addEventListener("click", () => {
+        nav.classList.add("active");
+      });
+
+      body.addEventListener("click", (e) => {
+        let clickedElm = e.target;
+
+        if (
+          !clickedElm.classList.contains("sidebarOpen") &&
+          !clickedElm.classList.contains("menu")
+        ) {
+          nav.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
