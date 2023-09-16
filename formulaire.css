@@ -153,3 +153,57 @@ body.dark{
     row-gap: 15px;
   }
 }
+
+
+/**/
+
+/* Styles pour les étiquettes (labels) */
+.container .input-box label {
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 5px;
+}
+
+/* Styles pour les champs de saisie (input) */
+.container .input-box input[type="text"],
+.container .input-box input[type="email"],
+.container .input-box input[type="tel"],
+.container .input-box textarea {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  font-size: 1rem;
+  color: rgb(134, 134, 134);
+  margin-top: 8px;
+  border: 1px solid var(--text-color);
+  border-radius: 6px;
+  padding: 0 15px;
+  transition: border-color 0.3s ease;
+}
+
+/* Styles au focus des champs de saisie */
+.container .input-box input:focus,
+.container .input-box textarea:focus {
+  border-color: var(--btn-color);
+  box-shadow: 0 1px 0 var(--btn-color);
+}
+
+/* Style du bouton de soumission */
+.container button {
+  height: 55px;
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  background:#22244d;
+}
+
+
+
+.container button:hover {
+  background:#0d0e1f;
+}

@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="formulaire.js"></script>
+
+<script type="text/javascript">
+  emailjs.init('zn7f6q6HMErxzAI9d')
+</script>
   </head>
   <body>
     <nav>
@@ -51,32 +58,30 @@
             </div>
         </div>
     </nav> <br> <br><br><br>
-    <div style="display: flex;justify-content: center;align-items: center;"> 
+    <div style="display: flex;justify-content: center;align-items: center; margin-bottom: 50px;"> 
         <section class="container">
         <header>Registration Form</header>
-        <form action="https://formsubmit.co/el/wiputi" method="POST">
           <div class="input-box">
             <label>Full Name</lab el>
-            <input name="name" type="text" placeholder="Enter full name" required />
+            <input id="fullname" type="text" placeholder="Enter full name" required />
           </div>
   
           <div class="input-box">
             <label>Email Address</label>
-            <input name="email" type="text" placeholder="Enter email address" required />
+            <input id="emailId" type="text" placeholder="Enter email address" required />
           </div>
   
           <div class="column">
             <div class="input-box">
               <label>Phone Number</label>
-              <input name="phone" type="number" placeholder="Enter phone number" required />
+              <input id="phoneNumber" type="tel" placeholder="Enter phone number" required />
             </div>
             <div class="input-box">
-              <label>Birth Date</label>
-              <input name="date" type="date" placeholder="Enter birth date" required />
+              <label>Message</label>
+              <textarea id="message" placeholder="entrez un message" required ></textarea>
             </div>
           </div>
-          <button>Submit</button>
-        </form>
+          <button id="button" class="button" onclick="SendMail()">Submit</button>
       </section></div>
       <footer>
         <div class="grid-footer">
@@ -101,7 +106,7 @@
         </div>
     </footer>
   </body>
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
   <script>
 
     const body = document.querySelector("body"),
@@ -143,22 +148,7 @@
             nav.classList.remove("active");
         }
     });
-    function sendMail(){
-        Email.send({
-        Host : "smtp.gmail.com",
-        Username : "hackinfo21@gmail.com",
-        Password : "WISDOM22",
-        To : 'hackinfo21@gmail.com',
-        From : document.getElementById("email").value,
-        Subject : "Membre premium",
-        Body : "Name:  " + document.getElementById("name").value +"<br> Email: " +
-        "<br> Email : " + document.getElementById("email").value+
-        "<br> Phone : " + document.getElementById("phone").value+
-        "<br> Phone : " + document.getElementById("date").value
-    }).then(
-    message => alert("Sent succesfully")
-    );
-    }
+
 </script>
 
 </html>
